@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portal - Courses</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="logo-text">NEXUS</div>
+            </div>
+
+            <nav class="nav-links">
+                <div class="nav-item" onclick="window.location.href='dashboard.html'">
+                    <i class="fas fa-th-large"></i>
+                    <span>Dashboard</span>
+                </div>
+                <div class="nav-item active" onclick="window.location.href='courses.html'">
+                    <i class="fas fa-book-open"></i>
+                    <span>My Courses</span>
+                </div>
+                <div class="nav-item" onclick="window.location.href='grades.html'">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Grades</span>
+                </div>
+                <div class="nav-item" onclick="window.location.href='schedule.html'">
+                    <i class="far fa-calendar-alt"></i>
+                    <span>Schedule</span>
+                </div>
+                <div class="nav-item" onclick="window.location.href='messages.html'">
+                    <i class="far fa-envelope"></i>
+                    <span>Messages</span>
+                </div>
+                <div class="nav-item" onclick="window.location.href='settings.html'">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </div>
+            </nav>
+
+            <div class="user-profile-mini">
+                <img src="assets/avatar.png" alt="User" class="avatar-mini">
+                <div class="user-info-mini">
+                    <h4>Rahim Ahmed</h4>
+                    <p>CSE • Year 3</p>
+                </div>
+                <i class="fas fa-sign-out-alt" style="margin-left: auto; cursor: pointer; color: var(--text-secondary);"
+                    onclick="window.location.href='index.html'"></i>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="header">
+                <div class="header-left" style="display: flex; align-items: center;">
+                    <div class="menu-toggle" id="menuToggle">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                    <div class="welcome-text">
+                        <h1>My Courses</h1>
+                        <p>Manage your enrolled courses and assignments.</p>
+                    </div>
+                </div>
+
+                <div class="header-actions">
+                    <div class="icon-btn notification-badge">
+                        <i class="far fa-bell"></i>
+                        <span class="badge"></span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-scroll">
+                <div class="courses-grid">
+                    <!-- Course 1 -->
+                    <div class="course-card">
+                        <div class="course-header">
+                            <span class="course-tag" style="color: var(--secondary);">CSE-301</span>
+                            <i class="fas fa-ellipsis-h" style="color: var(--text-secondary); cursor: pointer;"></i>
+                        </div>
+                        <div style="display: flex; gap: 16px; margin-bottom: 16px;">
+                            <img src="assets/cs.png" alt="CS" class="course-img-thumb">
+                            <div>
+                                <h3 class="course-title">Advanced Algorithms</h3>
+                                <p class="course-instructor">Dr. Anisul Islam</p>
+                            </div>
+                        </div>
+                        <div class="progress-container">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 75%; background: var(--secondary);"></div>
+                            </div>
+                            <span class="progress-text">75% Complete</span>
+                        </div>
+                        <div style="margin-top: 16px; display: flex; gap: 10px;">
+                            <button class="btn-primary" style="flex: 1; font-size: 0.85rem;">View Materials</button>
+                        </div>
+                    </div>
+
+                    <!-- Course 2 -->
+                    <div class="course-card">
+                        <div class="course-header">
+                            <span class="course-tag" style="color: var(--primary);">MAT-202</span>
+                            <i class="fas fa-ellipsis-h" style="color: var(--text-secondary); cursor: pointer;"></i>
+                        </div>
+                        <div style="display: flex; gap: 16px; margin-bottom: 16px;">
+                            <img src="assets/math.png" alt="Math" class="course-img-thumb">
+                            <div>
+                                <h3 class="course-title">Linear Algebra</h3>
+                                <p class="course-instructor">Prof. Karim Ullah</p>
+                            </div>
+                        </div>
+                        <div class="progress-container">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 45%; background: var(--primary);"></div>
+                            </div>
+                            <span class="progress-text">45% Complete</span>
+                        </div>
+                        <div style="margin-top: 16px; display: flex; gap: 10px;">
+                            <button class="btn-primary" style="flex: 1; font-size: 0.85rem;">View Materials</button>
+                        </div>
+                    </div>
+
+                    <!-- Course 3 -->
+                    <div class="course-card">
+                        <div class="course-header">
+                            <span class="course-tag" style="color: var(--warning);">PHY-301</span>
+                            <i class="fas fa-ellipsis-h" style="color: var(--text-secondary); cursor: pointer;"></i>
+                        </div>
+                        <div style="display: flex; gap: 16px; margin-bottom: 16px;">
+                            <img src="assets/physics.png" alt="Physics" class="course-img-thumb">
+                            <div>
+                                <h3 class="course-title">Quantum Physics</h3>
+                                <p class="course-instructor">Dr. Farhana Khan</p>
+                            </div>
+                        </div>
+                        <div class="progress-container">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 60%; background: var(--warning);"></div>
+                            </div>
+                            <span class="progress-text">60% Complete</span>
+                        </div>
+                        <div style="margin-top: 16px; display: flex; gap: 10px;">
+                            <button class="btn-primary" style="flex: 1; font-size: 0.85rem;">View Materials</button>
+                        </div>
+                    </div>
+
+                    <!-- Course 4 -->
+                    <div class="course-card">
+                        <div class="course-header">
+                            <span class="course-tag" style="color: var(--success);">CSE-404</span>
+                            <i class="fas fa-ellipsis-h" style="color: var(--text-secondary); cursor: pointer;"></i>
+                        </div>
+                        <div style="display: flex; gap: 16px; margin-bottom: 16px;">
+                            <img src="assets/cs.png" alt="Web" class="course-img-thumb">
+                            <div>
+                                <h3 class="course-title">Web Development</h3>
+                                <p class="course-instructor">Prof. Tanvir Hasan</p>
+                            </div>
+                        </div>
+                        <div class="progress-container">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 90%; background: var(--success);"></div>
+                            </div>
+                            <span class="progress-text">90% Complete</span>
+                        </div>
+                        <div style="margin-top: 16px; display: flex; gap: 10px;">
+                            <button class="btn-primary" style="flex: 1; font-size: 0.85rem;">View Materials</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

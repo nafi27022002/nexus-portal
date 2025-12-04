@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portal - Messages</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .messages-container {
+            display: flex;
+            height: calc(100vh - 140px);
+            gap: 20px;
+        }
+
+        .contacts-list {
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            overflow-y: auto;
+        }
+
+        .contact-item {
+            padding: 16px;
+            border-radius: 12px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: background 0.2s ease;
+        }
+
+        .contact-item:hover,
+        .contact-item.active {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .chat-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+        }
+
+        .chat-header {
+            padding: 20px;
+            border-bottom: 1px solid var(--border-color);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 24px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .message {
+            max-width: 70%;
+            padding: 12px 16px;
+            border-radius: 16px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .message.received {
+            background: rgba(255, 255, 255, 0.05);
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+        }
+
+        .message.sent {
+            background: var(--primary);
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+        }
+
+        .chat-input-area {
+            padding: 20px;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            gap: 12px;
+        }
+
+        @media (max-width: 768px) {
+            .messages-container {
+                flex-direction: column;
+                height: auto;
+            }
+
+            .contacts-list {
+                width: 100%;
+                height: 200px;
+            }
+
+            .chat-area {
+                height: 500px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="logo-text">NEXUS</div>
+            </div>
+
+            <nav class="nav-links">
+                <div class="nav-item" onclick="window.location.href='dashboard.html'">
+                    <i class="fas fa-th-large"></i>
+                    <span>Dashboard</span>
+                </div>
+                <div class="nav-item" onclick="window.location.href='courses.html'">
+                    <i class="fas fa-book-open"></i>
+                    <span>My Courses</span>
+                </div>
+                <div class="nav-item" onclick="window.location.href='grades.html'">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Grades</span>
+                </div>
+                <div class="nav-item" onclick="window.location.href='schedule.html'">
+                    <i class="far fa-calendar-alt"></i>
+                    <span>Schedule</span>
+                </div>
+                <div class="nav-item active" onclick="window.location.href='messages.html'">
+                    <i class="far fa-envelope"></i>
+                    <span>Messages</span>
+                </div>
+                <div class="nav-item" onclick="window.location.href='settings.html'">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </div>
+            </nav>
+
+            <div class="user-profile-mini">
+                <img src="assets/avatar.png" alt="User" class="avatar-mini">
+                <div class="user-info-mini">
+                    <h4>Rahim Ahmed</h4>
+                    <p>CSE • Year 3</p>
+                </div>
+                <i class="fas fa-sign-out-alt" style="margin-left: auto; cursor: pointer; color: var(--text-secondary);"
+                    onclick="window.location.href='index.html'"></i>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="header">
+                <div class="header-left" style="display: flex; align-items: center;">
+                    <div class="menu-toggle" id="menuToggle">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                    <div class="welcome-text">
+                        <h1>Messages</h1>
+                        <p>Chat with professors and classmates.</p>
+                    </div>
+                </div>
+
+                <div class="header-actions">
+                    <div class="icon-btn notification-badge">
+                        <i class="far fa-bell"></i>
+                        <span class="badge"></span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-scroll">
+                <div class="messages-container">
+                    <div class="contacts-list">
+                        <div class="contact-item active">
+                            <img src="assets/avatar.png" class="avatar-mini" style="width: 32px; height: 32px;">
+                            <div>
+                                <div style="font-weight: 600;">Dr. Anisul Islam</div>
+                                <div style="font-size: 0.8rem; color: var(--text-secondary);">Re: Algorithm Project
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="avatar-mini"
+                                style="width: 32px; height: 32px; background: var(--secondary); display: flex; align-items: center; justify-content: center; border-radius: 50%; color: white;">
+                                KU</div>
+                            <div>
+                                <div style="font-weight: 600;">Prof. Karim Ullah</div>
+                                <div style="font-size: 0.8rem; color: var(--text-secondary);">Office hours changed</div>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="avatar-mini"
+                                style="width: 32px; height: 32px; background: var(--warning); display: flex; align-items: center; justify-content: center; border-radius: 50%; color: white;">
+                                SG</div>
+                            <div>
+                                <div style="font-weight: 600;">Study Group 4</div>
+                                <div style="font-size: 0.8rem; color: var(--text-secondary);">Meeting tomorrow?</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chat-area">
+                        <div class="chat-header">
+                            Dr. Anisul Islam
+                        </div>
+                        <div class="chat-messages">
+                            <div class="message received">
+                                Hello Rahim, have you submitted the final project proposal?
+                            </div>
+                            <div class="message sent">
+                                Hi Professor, yes I just uploaded it to the portal.
+                            </div>
+                            <div class="message received">
+                                Great, I'll take a look at it this afternoon.
+                            </div>
+                        </div>
+                        <div class="chat-input-area">
+                            <input type="text" class="form-input" placeholder="Type a message..." style="flex: 1;">
+                            <button class="btn-primary" style="width: auto; padding: 0 20px;"><i
+                                    class="fas fa-paper-plane"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

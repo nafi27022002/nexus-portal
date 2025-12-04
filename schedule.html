@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portal - Schedule</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .day-column {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 16px;
+        }
+
+        .day-header {
+            text-align: center;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--primary);
+        }
+
+        .calendar-event {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .event-time {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+        }
+
+        .event-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .event-loc {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 768px) {
+            .calendar-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="logo-text">NEXUS</div>
+            </div>
+
+            <nav class="nav-links">
+                <div class="nav-item" onclick="window.location.href='dashboard.html'">
+                    <i class="fas fa-th-large"></i>
+                    <span>Dashboard</span>
+                </div>
+                <div class="nav-item" onclick="window.location.href='courses.html'">
+                    <i class="fas fa-book-open"></i>
+                    <span>My Courses</span>
+                </div>
+                <div class="nav-item" onclick="window.location.href='grades.html'">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Grades</span>
+                </div>
+                <div class="nav-item active" onclick="window.location.href='schedule.html'">
+                    <i class="far fa-calendar-alt"></i>
+                    <span>Schedule</span>
+                </div>
+                <div class="nav-item" onclick="window.location.href='messages.html'">
+                    <i class="far fa-envelope"></i>
+                    <span>Messages</span>
+                </div>
+                <div class="nav-item" onclick="window.location.href='settings.html'">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </div>
+            </nav>
+
+            <div class="user-profile-mini">
+                <img src="assets/avatar.png" alt="User" class="avatar-mini">
+                <div class="user-info-mini">
+                    <h4>Rahim Ahmed</h4>
+                    <p>CSE • Year 3</p>
+                </div>
+                <i class="fas fa-sign-out-alt" style="margin-left: auto; cursor: pointer; color: var(--text-secondary);"
+                    onclick="window.location.href='index.html'"></i>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="header">
+                <div class="header-left" style="display: flex; align-items: center;">
+                    <div class="menu-toggle" id="menuToggle">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                    <div class="welcome-text">
+                        <h1>Weekly Schedule</h1>
+                        <p>Your classes and events for this week.</p>
+                    </div>
+                </div>
+
+                <div class="header-actions">
+                    <div class="icon-btn notification-badge">
+                        <i class="far fa-bell"></i>
+                        <span class="badge"></span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-scroll">
+                <div class="card">
+                    <div class="calendar-grid">
+                        <!-- Monday -->
+                        <div class="day-column">
+                            <div class="day-header">Monday</div>
+                            <div class="calendar-event" style="border-left: 3px solid var(--primary);">
+                                <div class="event-time">09:00 - 10:30</div>
+                                <div class="event-title">Linear Algebra</div>
+                                <div class="event-loc">Room 302</div>
+                            </div>
+                            <div class="calendar-event" style="border-left: 3px solid var(--secondary);">
+                                <div class="event-time">13:00 - 14:30</div>
+                                <div class="event-title">Adv. Algorithms</div>
+                                <div class="event-loc">Lab A</div>
+                            </div>
+                        </div>
+
+                        <!-- Tuesday -->
+                        <div class="day-column">
+                            <div class="day-header">Tuesday</div>
+                            <div class="calendar-event" style="border-left: 3px solid var(--warning);">
+                                <div class="event-time">10:00 - 11:30</div>
+                                <div class="event-title">Quantum Physics</div>
+                                <div class="event-loc">Hall B</div>
+                            </div>
+                        </div>
+
+                        <!-- Wednesday -->
+                        <div class="day-column">
+                            <div class="day-header">Wednesday</div>
+                            <div class="calendar-event" style="border-left: 3px solid var(--primary);">
+                                <div class="event-time">09:00 - 10:30</div>
+                                <div class="event-title">Linear Algebra</div>
+                                <div class="event-loc">Room 302</div>
+                            </div>
+                            <div class="calendar-event" style="border-left: 3px solid var(--success);">
+                                <div class="event-time">15:00 - 16:30</div>
+                                <div class="event-title">Web Development</div>
+                                <div class="event-loc">Lab C</div>
+                            </div>
+                        </div>
+
+                        <!-- Thursday -->
+                        <div class="day-column">
+                            <div class="day-header">Thursday</div>
+                            <div class="calendar-event" style="border-left: 3px solid var(--warning);">
+                                <div class="event-time">10:00 - 11:30</div>
+                                <div class="event-title">Quantum Physics</div>
+                                <div class="event-loc">Hall B</div>
+                            </div>
+                            <div class="calendar-event" style="border-left: 3px solid var(--secondary);">
+                                <div class="event-time">13:00 - 14:30</div>
+                                <div class="event-title">Adv. Algorithms</div>
+                                <div class="event-loc">Lab A</div>
+                            </div>
+                        </div>
+
+                        <!-- Friday -->
+                        <div class="day-column">
+                            <div class="day-header">Friday</div>
+                            <div class="calendar-event" style="border-left: 3px solid var(--success);">
+                                <div class="event-time">11:00 - 12:30</div>
+                                <div class="event-title">Web Development</div>
+                                <div class="event-loc">Lab C</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
